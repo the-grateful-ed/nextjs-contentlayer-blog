@@ -1,5 +1,7 @@
-import { allPosts } from "@/.contentlayer/generated"
-import Link from "next/link"
+import { allPosts } from "@/.contentlayer/generated";
+import Link from "next/link";
+import YouTube from "@/components/YouTube";
+import Twitter from "@/components/Twitter";
 
 export default function Home() {
   return (
@@ -10,8 +12,10 @@ export default function Home() {
             <h2>{post.title}</h2>
           </Link>
           {post.description && <p>{post.description}</p>}
+          {post.twitterId && <Twitter id={post.twitterId} />}
+          {post.youtubeId && <YouTube id={post.youtubeId} />}
         </article>
       ))}
     </div>
-  )
+  );
 }
